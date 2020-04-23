@@ -1,0 +1,83 @@
+#################
+## Eclipse
+#################
+*.pydevproject
+.project
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# CDT-specific
+.cproject
+
+# PDT-specific
+.buildpath
+
+#################
+## Idea
+#################
+**/*.iml
+.idea/
+
+#################
+## Maven
+#################
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+# Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
+!/.mvn/wrapper/maven-wrapper.jar
+
+#################
+## WebStorm
+#################
+.DS_Store
+node_modules
+bitalarm-manager-ui/dist
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+#################
+## Maven Npm Files
+#################
+/bitalarm-manager-ui/node/
+
+#################
+## Logger Files
+#################
+/bitalarm-manager-impl/logs/
+/bitalarm-manager-node/logs/
+
+#################
+## Configuration Files
+#################
+/bitalarm-manager-impl/conf/
+/bitalarm-manager-node/conf/
