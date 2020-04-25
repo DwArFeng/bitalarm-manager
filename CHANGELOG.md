@@ -9,6 +9,11 @@
   - com.dwarfeng.bitalarmmanager.stack.service.AlarmInfoResponseService
   - com.dwarfeng.bitalarmmanager.stack.service.AlarmSettingResponseService
   - com.dwarfeng.bitalarmmanager.stack.service.CurrentAlarmResponseService
+- 完成实体的控制器。
+  - com.dwarfeng.bitalarmmanager.node.controller.v1.AlarmHistoryController
+  - com.dwarfeng.bitalarmmanager.node.controller.v1.AlarmInfoController
+  - com.dwarfeng.bitalarmmanager.node.controller.v1.AlarmSettingController
+  - com.dwarfeng.bitalarmmanager.node.controller.v1.CurrentAlarmController
 
 #### Bug修复
 
