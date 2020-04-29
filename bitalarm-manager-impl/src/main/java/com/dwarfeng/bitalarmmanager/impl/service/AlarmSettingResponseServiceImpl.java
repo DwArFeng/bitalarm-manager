@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
+@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 public class AlarmSettingResponseServiceImpl implements AlarmSettingResponseService {
 
     @Autowired

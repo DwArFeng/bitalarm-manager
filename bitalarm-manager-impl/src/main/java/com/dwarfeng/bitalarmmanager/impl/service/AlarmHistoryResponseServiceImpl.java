@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.Date;
 
 @Service
+@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 public class AlarmHistoryResponseServiceImpl implements AlarmHistoryResponseService {
 
     @Autowired

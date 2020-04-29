@@ -31,5 +31,8 @@
     <dubbo:reference id="alarmHistoryMaintainService"
                      interface="com.dwarfeng.bitalarm.stack.service.AlarmHistoryMaintainService"
                      retries="3" timeout="1000"/>
+    <dubbo:reference id="alarmTypeIndicatorMaintainService"
+                     interface="com.dwarfeng.bitalarm.stack.service.AlarmTypeIndicatorMaintainService"
+                     retries="3" timeout="1000"/>
     <dubbo:reference id="longIdService" interface="com.dwarfeng.sfds.stack.service.LongIdService"/>
 </beans>

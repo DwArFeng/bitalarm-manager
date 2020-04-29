@@ -1,13 +1,7 @@
 package com.dwarfeng.bitalarmmanager.node.configuration;
 
-import com.dwarfeng.bitalarm.sdk.bean.entity.JSFixedFastJsonAlarmHistory;
-import com.dwarfeng.bitalarm.sdk.bean.entity.JSFixedFastJsonAlarmInfo;
-import com.dwarfeng.bitalarm.sdk.bean.entity.JSFixedFastJsonAlarmSetting;
-import com.dwarfeng.bitalarm.sdk.bean.entity.JSFixedFastJsonCurrentAlarm;
-import com.dwarfeng.bitalarm.stack.bean.entity.AlarmHistory;
-import com.dwarfeng.bitalarm.stack.bean.entity.AlarmInfo;
-import com.dwarfeng.bitalarm.stack.bean.entity.AlarmSetting;
-import com.dwarfeng.bitalarm.stack.bean.entity.CurrentAlarm;
+import com.dwarfeng.bitalarm.sdk.bean.entity.*;
+import com.dwarfeng.bitalarm.stack.bean.entity.*;
 import com.dwarfeng.subgrade.impl.bean.DozerBeanTransformer;
 import com.dwarfeng.subgrade.stack.bean.BeanTransformer;
 import org.dozer.Mapper;
@@ -42,5 +36,11 @@ public class BeanTransformerConfiguration {
     public BeanTransformer<AlarmHistory, JSFixedFastJsonAlarmHistory>
     alarmHistoryJSFixedFastJsonAlarmHistoryBeanTransformer() {
         return new DozerBeanTransformer<>(AlarmHistory.class, JSFixedFastJsonAlarmHistory.class, mapper);
+    }
+
+    @Bean
+    public BeanTransformer<AlarmTypeIndicator, FastJsonAlarmTypeIndicator>
+    AlarmTypeIndicatorJSFixedFastJsonAlarmTypeIndicatorBeanTransformer() {
+        return new DozerBeanTransformer<>(AlarmTypeIndicator.class, FastJsonAlarmTypeIndicator.class, mapper);
     }
 }
