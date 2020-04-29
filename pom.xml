@@ -434,10 +434,10 @@
     </build>
 
     <modules>
+        <module>bitalarm-manager-ui</module>
         <module>bitalarm-manager-stack</module>
         <module>bitalarm-manager-impl</module>
         <module>bitalarm-manager-node</module>
-        <module>bitalarm-manager-ui</module>
         <module>bitalarm-manager-distribution</module>
     </modules>
 </project>
