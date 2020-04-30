@@ -6,11 +6,11 @@ const API_PREFIX = '/api';
 const VERSION_PREFIX = '/v1';
 let urlPrefix;
 if (process.env.NODE_ENV === 'development') {
-  urlPrefix = 'http://localhost:8080/fdr_manager_node_war_exploded';
+  urlPrefix = 'http://localhost:8080/bitalarm_manager_node_war_exploded';
 } else if (process.env.NODE_ENV === 'debug') {
   urlPrefix = 'https://www.debug.com';
 } else if (process.env.NODE_ENV === 'production') {
-  urlPrefix = 'http://localhost:8080/fdr-manager';
+  urlPrefix = 'http://localhost:8080/bitalarm-manager';
 }
 axios.defaults.baseURL = urlPrefix + API_PREFIX + VERSION_PREFIX;
 

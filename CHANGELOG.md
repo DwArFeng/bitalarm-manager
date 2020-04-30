@@ -16,6 +16,8 @@
   - com.dwarfeng.bitalarmmanager.node.controller.v1.AlarmSettingController
   - com.dwarfeng.bitalarmmanager.node.controller.v1.CurrentAlarmController
   - com.dwarfeng.bitalarmmanager.node.controller.v1.AlarmTypeIndicatorController
+- 完成页面。
+  - 报警类型指示器维护页面。
 
 #### Bug修复
 

@@ -11,7 +11,7 @@
       <!-- 搜索与添加区域 -->
       <div style="margin-top: 15px;">
         <el-row :gutter="20">
-          <el-col :span="3" offset="21">
+          <el-col :span="3" :offset="21">
             <el-button class="top-el-button" type="primary" @click="handleShowCreateDialog">添加指示器
             </el-button>
           </el-col>
@@ -23,34 +23,25 @@
         stripe
         style="width: 100%">
         <el-table-column
-          prop="key.string_id"
+          prop="key.byte_id"
           label="ID"
           width="180px">
         </el-table-column>
         <el-table-column
           prop="label"
-          label="标签"
-          width="400px"
-        >
-        </el-table-column>
-        <el-table-column
-          prop="description"
-          label="描述"
-        >
-        </el-table-column>
-        <el-table-column
-          prop="example_content"
-          label="配置示例"
-          :formatter="exampleContentFormatter"
-          width="100px">
+          label="标签">
         </el-table-column>
         <el-table-column label="操作" :width="150">
           <template slot-scope="scope">
             <el-button-group>
               <el-button
                 size="mini"
-                type="success"
-                @click="handleShowDetailDialog(scope.row)">详细信息
+                @click="handleShowUpdateDialog(scope.row)">编辑
+              </el-button>
+              <el-button
+                size="mini"
+                type="danger"
+                @click="handleDelete(scope.row.key.byte_id)">删除
               </el-button>
             </el-button-group>
           </template>
@@ -84,7 +75,7 @@
         :rules="createAlarmTypeIndicatorRules"
         status-icon
         :model="anchorAlarmTypeIndicator"
-        ref="createPermissionForm">
+        ref="createAlarmTypeIndicatorForm">
         <el-form-item label="ID" prop="key">
           <el-input
             v-model="anchorAlarmTypeIndicator.key"
@@ -106,7 +97,7 @@
     <!-- 更新报警类型指示器对话框 -->
     <el-dialog
       title="更新报警类型指示器"
-      :visible.sync="updatePermissionVisible"
+      :visible.sync="updateAlarmTypeIndicatorVisible"
       center>
       <el-form
         label-width="80px"
@@ -114,38 +105,20 @@
         :rules="updateAlarmTypeIndicatorRules"
         status-icon
         :model="anchorAlarmTypeIndicator"
-        ref="updatePermissionForm">
+        ref="updateAlarmTypeIndicatorForm">
         <el-form-item label="ID" prop="key">
           <el-input
             v-model="anchorAlarmTypeIndicator.key"
             :disabled="true"></el-input>
         </el-form-item>
-        <el-form-item label="名称" prop="name">
+        <el-form-item label="标签" prop="label">
           <el-input
-            v-model="anchorAlarmTypeIndicator.name"></el-input>
-        </el-form-item>
-        <el-form-item label="备注" prop="remark">
-          <el-input
-            v-model="anchorAlarmTypeIndicator.remark"
-            placeholder="请输入报警类型指示器备注"></el-input>
-        </el-form-item>
-        <el-form-item label="实时记录" prop="function">
-          <el-switch
-            active-text="启用"
-            inactive-text="不启用"
-            v-model="anchorAlarmTypeIndicator.realtime_enabled"
-          ></el-switch>
-        </el-form-item>
-        <el-form-item label="持久记录" prop="function">
-          <el-switch
-            active-text="启用"
-            inactive-text="不启用"
-            v-model="anchorAlarmTypeIndicator.persistence_enabled"
-          ></el-switch>
+            v-model="anchorAlarmTypeIndicator.label"
+            placeholder="请输入报警类型指示器标签"></el-input>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="updatePermissionVisible = false">取消</el-button>
+        <el-button @click="updateAlarmTypeIndicatorVisible = false">取消</el-button>
         <el-button type="primary" @click="handleUpdate">确定</el-button>
       </div>
     </el-dialog>
@@ -195,6 +168,11 @@ export default {
       updateAlarmTypeIndicatorVisible: false,
       createAlarmTypeIndicatorRules: {
         key: [
+          {
+            required: true,
+            message: 'ID不能为空',
+            trigger: 'blur',
+          },
           {
             validator: validateAlarmTypeIndicatorNotExists,
             trigger: 'blur',
@@ -280,11 +258,8 @@ export default {
       if (this.$refs.updateAlarmTypeIndicatorForm !== undefined) {
         this.$refs.updateAlarmTypeIndicatorForm.resetFields();
       }
-      this.anchorAlarmTypeIndicator.key = row.key.long_id;
-      this.anchorAlarmTypeIndicator.name = row.name;
-      this.anchorAlarmTypeIndicator.realtime_enabled = row.realtime_enabled;
-      this.anchorAlarmTypeIndicator.persistence_enabled = row.persistence_enabled;
-      this.anchorAlarmTypeIndicator.remark = row.remark;
+      this.anchorAlarmTypeIndicator.key = row.key.byte_id;
+      this.anchorAlarmTypeIndicator.label = row.label;
       this.updateAlarmTypeIndicatorVisible = true;
     },
     handleCreate() {
@@ -297,10 +272,7 @@ export default {
         }
         insert(
           this.anchorAlarmTypeIndicator.key,
-          this.anchorAlarmTypeIndicator.name,
-          this.anchorAlarmTypeIndicator.remark,
-          this.anchorAlarmTypeIndicator.realtime_enabled,
-          this.anchorAlarmTypeIndicator.persistence_enabled,
+          this.anchorAlarmTypeIndicator.label,
         )
           .then((res) => {
             if (res.meta.code !== 0) {
@@ -314,7 +286,7 @@ export default {
             }
             this.$message({
               showClose: true,
-              message: `报警类型指示器 ${res.data.long_id} 创建成功`,
+              message: `报警类型指示器 ${res.data.byte_id} 创建成功`,
               type: 'success',
               center: true,
             });
@@ -343,10 +315,7 @@ export default {
         }
         update(
           this.anchorAlarmTypeIndicator.key,
-          this.anchorAlarmTypeIndicator.name,
-          this.anchorAlarmTypeIndicator.remark,
-          this.anchorAlarmTypeIndicator.realtime_enabled,
-          this.anchorAlarmTypeIndicator.persistence_enabled,
+          this.anchorAlarmTypeIndicator.label,
         )
           .then((res) => {
             if (res.meta.code !== 0) {
@@ -381,9 +350,7 @@ export default {
     },
     handleDelete(key) {
       this.$confirm('此操作将永久删除此报警类型指示器。<br>'
-        + '删除报警类型指示器时会同时删除报警类型指示器的过滤器设置和触发器设置，但不会一并移除与此报警类型指示器相关数据。<br>'
-        + '<b>我们强联建议您只是将报警类型指示器的实时数据记录和持久数据记录禁用，同时禁用所有的过滤器以及触发器，'
-        + '而不是删除报警类型指示器。</b><br>'
+        + '删除报警类型指示器后，已经使用此报警类型的实体的报警类型将会直接显示为byte数字。<br>'
         + '是否继续?',
       '提示', {
         confirmButtonText: '确定',
@@ -422,9 +389,6 @@ export default {
           });
           return null;
         });
-    },
-    exampleContentFormatter() {
-      return '见详细页面';
     },
   },
 };
