@@ -95,7 +95,7 @@
         </el-table-column>
         <el-table-column
           prop="index"
-          label="报警序号"
+          label="报警索引"
           width="120px">
         </el-table-column>
         <el-table-column
@@ -178,7 +178,7 @@
             v-model="anchorAlarmSetting.enabled"
           ></el-switch>
         </el-form-item>
-        <el-form-item label="序号" prop="index">
+        <el-form-item label="索引" prop="index">
           <el-input-number
             v-model="anchorAlarmSetting.index"
             controls-position="right"
@@ -245,7 +245,7 @@
             v-model="anchorAlarmSetting.enabled"
           ></el-switch>
         </el-form-item>
-        <el-form-item label="序号" prop="index">
+        <el-form-item label="索引" prop="index">
           <el-input-number
             v-model="anchorAlarmSetting.index"
             controls-position="right"
@@ -352,7 +352,7 @@ export default {
         index: [
           {
             required: true,
-            message: '报警设置的序号不能为空',
+            message: '报警设置的索引不能为空',
             trigger: 'blur',
           },
         ],
@@ -382,7 +382,7 @@ export default {
         index: [
           {
             required: true,
-            message: '报警设置的序号不能为空',
+            message: '报警设置的索引不能为空',
             trigger: 'blur',
           },
         ],

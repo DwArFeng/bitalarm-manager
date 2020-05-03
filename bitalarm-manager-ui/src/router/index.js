@@ -24,10 +24,10 @@ const routes = [
         path: 'alarm-type-indicator',
         component: () => import('../views/alarmTypeIndicator/AlarmTypeIndicator'),
       },
-      // {
-      //   path: 'alarm-info',
-      //   component: () => import('../views/alarmInfo/AlarmInfo'),
-      // },
+      {
+        path: 'alarm-info',
+        component: () => import('../views/alarmInfo/AlarmInfo'),
+      },
       // {
       //   path: 'current-alarm',
       //   component: () => import('../views/currentAlarm/CurrentAlarm'),
