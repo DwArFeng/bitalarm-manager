@@ -16,10 +16,10 @@ const routes = [
         path: '',
         redirect: 'alarm-setting',
       },
-      // {
-      //   path: 'alarm-setting',
-      //   component: () => import('../views/alarmSetting/AlarmSetting'),
-      // },
+      {
+        path: 'alarm-setting',
+        component: () => import('../views/alarmSetting/AlarmSetting'),
+      },
       {
         path: 'alarm-type-indicator',
         component: () => import('../views/alarmTypeIndicator/AlarmTypeIndicator'),
