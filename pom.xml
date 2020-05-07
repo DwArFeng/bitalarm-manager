@@ -6,7 +6,7 @@
 
     <groupId>com.dwarfeng</groupId>
     <artifactId>bitalarm-manager</artifactId>
-    <version>1.0.0.a-SNAPSHOT</version>
+    <version>1.0.0.a</version>
 
     <packaging>pom</packaging>
 
@@ -366,27 +366,27 @@
             <dependency>
                 <groupId>com.dwarfeng</groupId>
                 <artifactId>bitalarm-manager-stack</artifactId>
-                <version>1.0.0.a-SNAPSHOT</version>
+                <version>1.0.0.a</version>
             </dependency>
             <dependency>
                 <groupId>com.dwarfeng</groupId>
                 <artifactId>bitalarm-manager-impl</artifactId>
-                <version>1.0.0.a-SNAPSHOT</version>
+                <version>1.0.0.a</version>
             </dependency>
             <dependency>
                 <groupId>com.dwarfeng</groupId>
                 <artifactId>bitalarm-manager-node</artifactId>
-                <version>1.0.0.a-SNAPSHOT</version>
+                <version>1.0.0.a</version>
             </dependency>
             <dependency>
                 <groupId>com.dwarfeng</groupId>
                 <artifactId>bitalarm-manager-ui</artifactId>
-                <version>1.0.0.a-SNAPSHOT</version>
+                <version>1.0.0.a</version>
             </dependency>
             <dependency>
                 <groupId>com.dwarfeng</groupId>
                 <artifactId>bitalarm-manager-distribution</artifactId>
-                <version>1.0.0.a-SNAPSHOT</version>
+                <version>1.0.0.a</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
