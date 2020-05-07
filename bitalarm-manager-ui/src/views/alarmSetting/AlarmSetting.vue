@@ -37,6 +37,20 @@
               ></el-button>
             </el-input>
           </el-col>
+          <el-col :span="6">
+            <el-input
+              placeholder="请输入报警文本，支持任意部位匹配"
+              class="input-with-select"
+              v-model="alarmMessage2Search"
+              clearable
+            >
+              <el-button
+                slot="append"
+                icon="el-icon-search"
+                @click="handleAlarmMessageSearch"
+              ></el-button>
+            </el-input>
+          </el-col>
           <el-col :span="3">
             <el-select
               v-model="alarmType2Search"
@@ -51,20 +65,6 @@
               >
               </el-option>
             </el-select>
-          </el-col>
-          <el-col :span="6">
-            <el-input
-              placeholder="请输入报警文本，支持任意部位匹配"
-              class="input-with-select"
-              v-model="alarmMessage2Search"
-              clearable
-            >
-              <el-button
-                slot="append"
-                icon="el-icon-search"
-                @click="handleAlarmMessageSearch"
-              ></el-button>
-            </el-input>
           </el-col>
           <el-col :span="3">
             <el-button class="top-el-button" type="primary" @click="handleShowCreateDialog">添加报警设置
@@ -657,6 +657,7 @@ export default {
       return row.alarm_type;
     },
     handleIdSearch() {
+      this.alarmType2Search = '';
       if (this.id2Search === '') {
         this.lookupAll();
       } else {
@@ -706,6 +707,7 @@ export default {
       }
     },
     handlePointIdSearch() {
+      this.alarmType2Search = '';
       if (this.pointId2Search === '') {
         this.lookupAll();
       } else {
@@ -764,6 +766,7 @@ export default {
       }
     },
     handleAlarmMessageSearch() {
+      this.alarmType2Search = '';
       if (this.alarmMessage2Search === '') {
         this.lookupAll();
       } else {

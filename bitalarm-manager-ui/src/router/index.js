@@ -32,10 +32,10 @@ const routes = [
         path: 'current-alarm',
         component: () => import('../views/currentAlarm/CurrentAlarm'),
       },
-      // {
-      //   path: 'alarm-history',
-      //   component: () => import('../views/alarmHistory/AlarmHistory'),
-      // },
+      {
+        path: 'alarm-history',
+        component: () => import('../views/alarmHistory/AlarmHistory'),
+      },
     ],
   },
 ];
