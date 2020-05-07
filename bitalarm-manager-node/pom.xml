@@ -13,7 +13,7 @@
     <packaging>war</packaging>
 
     <artifactId>bitalarm-manager-node</artifactId>
-    <name>bitalarm-manager-node Maven Webapp</name>
+    <name>bitalarm-manager-node</name>
     <url>http://maven.apache.org</url>
 
     <properties>

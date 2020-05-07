@@ -7,18 +7,13 @@
 ## 界面
 
 - 实体管理
-  - 数据点管理
-  - 过滤器管理
-  - 触发器管理
+  - 报警设置管理
 - 数据支持
-  - 过滤器支持
-  - 触发器支持
-  - 映射器支持
+  - 报警类型指示器
 - 数据查询
-  - 实时数据查询
-  - 持久数据查询
-  - 过滤数据查询
-  - 触发数据查询
+  - 报警信息查询
+  - 当前报警查询
+  - 报警历史查询
 
 ---
 
@@ -45,7 +40,7 @@
 
    找到打包后的目标文件 
    ```
-   bitalarm-manager-distribution/target/bitalarm-manager-distribution-1.0.0.a-SNAPSHOT-release.tar.gz
+   bitalarm-manager-distribution/target/bitalarm-manager-distribution-1.0.0.a-release.tar.gz
    ```
    将其解压至tomcat的根目录内即可。
 
